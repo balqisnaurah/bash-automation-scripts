@@ -11,7 +11,7 @@ echo "========================================"
 echo ""
 echo "[1] INFORMASI SISTEM"
 echo "Hostname	: $(hostname)"
-echo "OS	: $(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr -d '"')"
+echo "OS		: $(cat /etc/os-release | grep PRETTY_NAME | cut -d= -f2 | tr -d '"')"
 echo "Kernel	: $(uname -r)"
 echo "Uptime	: $(uptime -p)"
 
@@ -24,21 +24,21 @@ echo "CPU Cores		: $(nproc)"
 # Penggunaan Memory
 echo ""
 echo "[3] PENGGUNAAN MEMORY"
-free -h | awk '/^Mem:/ {printf "Total: %s | Tersedian: %s\n", $2, $3, $7}'
+free -h | awk '/^Mem:/ {printf "Total: %s | Tersedia: %s\n", $2, $3, $7}'
 
 # Penggunaan Disk
 echo ""
 echo "[4] PENGGUNAAN DISK"
-df -h | grep -E '^/dev/' | awk '{printf "%-20s %s terpakai dari %s (%s)\n", $6, %3, %2, %5}'
+df -h | grep -E '^/dev/' | awk '{printf "%-20s %s terpakai dari %s (%s)\n", $6, $3, $2, $5}'
 
 # Cek service penting
 echo ""
 echo "[5] STATUS SERVICE"
 for service in docker ssh; do
 	if systemctl is-active --quiet $service 2>/dev/null; then
-		echo "$service : AKTIF"
+		echo "$service	: AKTIF"
 	else
-		echo "$service : TIDAK AKTIF"
+		echo "$service	: TIDAK AKTIF"
 	fi
 done
 
