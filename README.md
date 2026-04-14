@@ -15,6 +15,17 @@ Script untuk melakukan backup folder `Documents` ke direktori `Backup` dalam for
 - Menambahkan timestamp pada nama file backup
 - Menggunakan kompresi gzip untuk menghemat storage
 
+### `system-health-check.sh`
+
+Script untuk mengecek kesehatan sistem server secara menyeluruh. Output mencakup informasi sistem, penggunaan CPU, memory, disk, status service, container Docker yang berjalan, dan konektivitas jaringan.
+
+**Fitur:**
+- Menampilkan ringkasan informasi sistem (hostname, OS, kernel, uptime)
+- Monitoring penggunaan CPU, memory, dan disk
+- Mengecek status service penting (Docker, SSH)
+- Menampilkan daftar Docker container yang sedang berjalan
+- Mengecek konektivitas jaringan
+
 ---
 
 ## Cara Menggunakan
